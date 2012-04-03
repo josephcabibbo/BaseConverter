@@ -10,4 +10,6 @@
 
 @interface BaseConverterViewController : UIViewController
 
+- (IBAction)Go;
+
 @end
