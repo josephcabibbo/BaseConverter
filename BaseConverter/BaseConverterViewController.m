@@ -13,6 +13,7 @@
 @end
 
 @implementation BaseConverterViewController
+@synthesize binaryLabel;
 
 - (IBAction)Go 
 {
@@ -38,12 +39,20 @@
         }
     }
     
-    // Print the binary conversion
+    // Print the binary conversion in the binary label
+    
+    NSNumber *lastObject;
+    
     while(binaryArray.count > 0)
-    {
-        NSLog(@"%@", [binaryArray lastObject]);
+    {        
+        lastObject = [binaryArray lastObject];
+        binaryLabel.text = [binaryLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", lastObject]];
         [binaryArray removeLastObject];
     }
 }
 
+- (void)viewDidUnload {
+    [self setBinaryLabel:nil];
+    [super viewDidUnload];
+}
 @end

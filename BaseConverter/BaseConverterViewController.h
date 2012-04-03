@@ -10,6 +10,8 @@
 
 @interface BaseConverterViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *binaryLabel;
+
 - (IBAction)Go;
 
 @end
