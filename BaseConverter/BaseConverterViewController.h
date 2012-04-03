@@ -11,6 +11,7 @@
 @interface BaseConverterViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *binaryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hexLabel;
 
 - (IBAction)Go;
 
