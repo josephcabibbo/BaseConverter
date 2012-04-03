@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *binaryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hexLabel;
+@property (weak, nonatomic) IBOutlet UILabel *octalLabel;
 
 - (IBAction)Go;
 
