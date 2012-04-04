@@ -10,10 +10,31 @@
 
 @interface BaseConverterViewController : UIViewController
 
+// Displayed Labels
+@property (weak, nonatomic) IBOutlet UILabel *decimalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *binaryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hexLabel;
 @property (weak, nonatomic) IBOutlet UILabel *octalLabel;
 
+// OutletConnections for disabling non valid buttons
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *hexValueCollection;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nonOctalValueCollection;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nonBinaryValueCollection;
+
+// Disable methods
+- (IBAction)disableHexValues;
+- (IBAction)disableNonOctaleValues;
+- (IBAction)disableNonBinaryValues;
+
+// Enable methods
+- (IBAction)enableDecimalValues;
+- (IBAction)enableOctalValues;
+- (IBAction)enableHexValues;
+
+// This will be gone soon
 - (IBAction)Go;
+
+- (IBAction)baseButtonPressed:(UIButton *)sender;
+- (IBAction)digitPressed:(UIButton *)sender;
 
 @end
