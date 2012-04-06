@@ -110,7 +110,6 @@
                                 </state>
                                 <connections>
                                     <action selector="baseButtonPressed:" destination="2" eventType="touchUpInside" id="kOo-h5-1ga"/>
-                                    <action selector="enableDecimalValues" destination="2" eventType="touchUpInside" id="Bz2-em-nZi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3G4-pp-UVf">
@@ -141,7 +140,6 @@
                                 </state>
                                 <connections>
                                     <action selector="baseButtonPressed:" destination="2" eventType="touchUpInside" id="ODP-UU-AuW"/>
-                                    <action selector="enableHexValues" destination="2" eventType="touchUpInside" id="QoU-H9-oGf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Zhj-46-Ym9">
@@ -157,7 +155,6 @@
                                 </state>
                                 <connections>
                                     <action selector="baseButtonPressed:" destination="2" eventType="touchUpInside" id="Evh-zo-mBX"/>
-                                    <action selector="enableOctalValues" destination="2" eventType="touchUpInside" id="TYW-Zz-Krs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3GN-dR-iny">
@@ -173,7 +170,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="NWb-fq-r2t"/>
-                                    <action selector="disableHexValues" destination="2" eventType="touchUpInside" id="v37-HF-hwx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tjz-bT-Lol">
@@ -189,7 +185,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="Teg-FC-zlf"/>
-                                    <action selector="disableHexValues" destination="2" eventType="touchUpInside" id="kbE-Sc-4MX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1U1-iF-bNg">
@@ -205,7 +200,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="d4E-Zo-t1M"/>
-                                    <action selector="disableHexValues" destination="2" eventType="touchUpInside" id="cAS-Qy-Gw3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bXh-PD-cub">
@@ -221,7 +215,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="xuD-yL-DAr"/>
-                                    <action selector="disableHexValues" destination="2" eventType="touchUpInside" id="tPd-9d-szr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cdQ-0I-b3D">
@@ -237,7 +230,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="8h0-nk-gia"/>
-                                    <action selector="disableNonOctaleValues" destination="2" eventType="touchUpInside" id="YP8-VO-qga"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MkN-Go-VCI">
@@ -253,7 +245,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="I3h-UG-Q3X"/>
-                                    <action selector="disableNonOctaleValues" destination="2" eventType="touchUpInside" id="jp9-i1-bPw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rsf-51-azv">
@@ -269,7 +260,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="FiF-kj-cJz"/>
-                                    <action selector="disableHexValues" destination="2" eventType="touchUpInside" id="4Li-DH-cll"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eUc-md-geG">
@@ -285,7 +275,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="zDC-tI-anQ"/>
-                                    <action selector="disableHexValues" destination="2" eventType="touchUpInside" id="AIP-0w-ggL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KKZ-dj-O0a">
@@ -301,7 +290,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="mvi-gl-gY2"/>
-                                    <action selector="disableNonBinaryValues" destination="2" eventType="touchUpInside" id="1O9-j9-Xrp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nGa-lM-boX">
@@ -317,7 +305,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="IAl-fQ-QSZ"/>
-                                    <action selector="disableNonBinaryValues" destination="2" eventType="touchUpInside" id="eOQ-jQ-aFq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3oc-ym-zYx">
@@ -333,7 +320,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="M1X-Jk-y0e"/>
-                                    <action selector="disableNonBinaryValues" destination="2" eventType="touchUpInside" id="6j1-7P-HqD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YQR-7R-6cx">
@@ -349,7 +335,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="Y1v-j5-pqP"/>
-                                    <action selector="disableNonBinaryValues" destination="2" eventType="touchUpInside" id="27a-8N-Q26"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CmW-8l-pda">
@@ -395,7 +380,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="oLf-5W-aFY"/>
-                                    <action selector="disableNonBinaryValues" destination="2" eventType="touchUpInside" id="yaw-7J-93f"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FbO-gc-0At">
@@ -411,7 +395,6 @@
                                 </state>
                                 <connections>
                                     <action selector="digitPressed:" destination="2" eventType="touchUpInside" id="EVH-08-e1B"/>
-                                    <action selector="disableNonBinaryValues" destination="2" eventType="touchUpInside" id="ZGs-TT-0og"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -439,7 +422,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="381" y="86"/>
+            <point key="canvasLocation" x="318" y="0.0"/>
         </scene>
     </scenes>
     <classes>

@@ -21,15 +21,6 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nonOctalValueCollection;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nonBinaryValueCollection;
 
-// Disable methods
-- (IBAction)disableHexValues;
-- (IBAction)disableNonOctaleValues;
-- (IBAction)disableNonBinaryValues;
-
-// Enable methods
-- (IBAction)enableDecimalValues;
-- (IBAction)enableOctalValues;
-- (IBAction)enableHexValues;
 
 // This will be gone soon
 - (IBAction)Go;

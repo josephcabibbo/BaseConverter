@@ -21,7 +21,7 @@
 
 - (IBAction)Go 
 {
-    double number = 14;         
+    double number = 3096;         
     double tempNumber = number; // binary
     double sameNumber = number; // hex
     double theNumber = number; // octal
@@ -113,7 +113,7 @@
     {
         // Disable invalid buttons
         [self disableHexValues];
-        [self disableNonOctaleValues];
+        [self disableNonOctalValues];
         // Enable valid buttons
         [self enableOctalValues];
     }
@@ -122,7 +122,7 @@
     {
         // Disable invalid buttons
         [self disableHexValues];
-        [self disableNonOctaleValues];
+        [self disableNonOctalValues];
         [self disableNonBinaryValues];
     }
     // Hex selected
@@ -135,7 +135,9 @@
 
 // This action will display the appropriate digits on the view as 
 //  well as send the values to the brain to compute the other bases
-- (IBAction)digitPressed:(UIButton *)sender {
+- (IBAction)digitPressed:(UIButton *)sender 
+{
+//    NSLog(@"%@", sender.currentTitle);
 }
 
 // Convert integers > 10 to their hex equivalent
@@ -149,18 +151,7 @@
         return nil;
 }
 
-- (void)viewDidUnload {
-    [self setBinaryLabel:nil];
-    [self setHexLabel:nil];
-    [self setOctalLabel:nil];
-    [self setDecimalLabel:nil];
-    [self setHexValueCollection:nil];
-    [self setNonOctalValueCollection:nil];
-    [self setNonBinaryValueCollection:nil];
-    [super viewDidUnload];
-}
-
-// This action will disable the hex digits when apropriate
+// Disable hex buttons
 - (IBAction)disableHexValues 
 {
     for(UIButton *hexButton in hexValueCollection)
@@ -170,8 +161,8 @@
     }
 }
 
-// This action will disable the non Octal digits when apropriate
-- (IBAction)disableNonOctaleValues 
+// Disable non octal buttons
+- (IBAction)disableNonOctalValues 
 {
     for(UIButton *nonOctalButton in nonOctalValueCollection)
     {
@@ -190,23 +181,22 @@
     }
 }
 
-// Enable valid decimal values
+// Enable valid decimal buttons
 - (IBAction)enableDecimalValues 
 {
-    for(UIButton *decimalButton in nonOctalValueCollection)
-    {
-        decimalButton.enabled = YES;
-        [decimalButton setAlpha:1];
-    }
+    // Combine octal and binary button collections in one array
+    NSMutableArray *decimalButtonCollection = [NSMutableArray array];
+    [decimalButtonCollection addObjectsFromArray:nonBinaryValueCollection];
+    [decimalButtonCollection addObjectsFromArray:nonOctalValueCollection];
     
-    for(UIButton *decimalButton in nonBinaryValueCollection)
+    for(UIButton *decimalButton in decimalButtonCollection)
     {
         decimalButton.enabled = YES;
         [decimalButton setAlpha:1];
     }
 }
 
-// Enable valid octal values
+// Enable valid octal buttons
 - (IBAction)enableOctalValues 
 {    
     for(UIButton *octalButton in nonBinaryValueCollection)
@@ -219,23 +209,28 @@
 // Enable valid hex buttons
 - (IBAction)enableHexValues 
 {
-    for(UIButton *hexButton in nonOctalValueCollection)
-    {
-        hexButton.enabled = YES;
-        [hexButton setAlpha:1];
-    }
+    // Combine octal, binary, and decimal button collections in one array
+    NSMutableArray *allHexButtons = [NSMutableArray array];
+    [allHexButtons addObjectsFromArray:nonOctalValueCollection];
+    [allHexButtons addObjectsFromArray:nonBinaryValueCollection];
+    [allHexButtons addObjectsFromArray:hexValueCollection];
     
-    for(UIButton *hexButton in nonBinaryValueCollection)
+    for(UIButton *hexButton in allHexButtons)
     {
         hexButton.enabled = YES;
         [hexButton setAlpha:1];
     }
-    
-    for(UIButton *hexButton in hexValueCollection)
-    {
-        hexButton.enabled = YES;
-        [hexButton setAlpha:1];
-    }
+}
+
+- (void)viewDidUnload {
+    [self setBinaryLabel:nil];
+    [self setHexLabel:nil];
+    [self setOctalLabel:nil];
+    [self setDecimalLabel:nil];
+    [self setHexValueCollection:nil];
+    [self setNonOctalValueCollection:nil];
+    [self setNonBinaryValueCollection:nil];
+    [super viewDidUnload];
 }
 
 @end

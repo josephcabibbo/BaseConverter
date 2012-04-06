@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4C8B6BB152F907900AA5AED /* BaseConverterBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8B6BA152F907900AA5AED /* BaseConverterBrain.m */; };
 		D4DC42C4152AB11000568D6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DC42C3152AB11000568D6F /* UIKit.framework */; };
 		D4DC42C6152AB11000568D6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DC42C5152AB11000568D6F /* Foundation.framework */; };
 		D4DC42C8152AB11000568D6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DC42C7152AB11000568D6F /* CoreGraphics.framework */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4C8B6B9152F907900AA5AED /* BaseConverterBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseConverterBrain.h; sourceTree = "<group>"; };
+		D4C8B6BA152F907900AA5AED /* BaseConverterBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseConverterBrain.m; sourceTree = "<group>"; };
 		D4DC42BF152AB11000568D6F /* BaseConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DC42C3152AB11000568D6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D4DC42C5152AB11000568D6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +85,8 @@
 				D4DC42D5152AB11000568D6F /* MainStoryboard.storyboard */,
 				D4DC42D8152AB11000568D6F /* BaseConverterViewController.h */,
 				D4DC42D9152AB11000568D6F /* BaseConverterViewController.m */,
+				D4C8B6B9152F907900AA5AED /* BaseConverterBrain.h */,
+				D4C8B6BA152F907900AA5AED /* BaseConverterBrain.m */,
 				D4DC42CA152AB11000568D6F /* Supporting Files */,
 			);
 			path = BaseConverter;
@@ -164,6 +169,7 @@
 				D4DC42D0152AB11000568D6F /* main.m in Sources */,
 				D4DC42D4152AB11000568D6F /* BaseConverterAppDelegate.m in Sources */,
 				D4DC42DA152AB11000568D6F /* BaseConverterViewController.m in Sources */,
+				D4C8B6BB152F907900AA5AED /* BaseConverterBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +281,7 @@
 				D4DC42DF152AB11000568D6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
