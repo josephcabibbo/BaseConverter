@@ -21,11 +21,10 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nonOctalValueCollection;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nonBinaryValueCollection;
 
-
-// This will be gone soon
-- (IBAction)Go;
-
+// Handles the selection of different bases
 - (IBAction)baseButtonPressed:(UIButton *)sender;
+
+// Handles the input
 - (IBAction)digitPressed:(UIButton *)sender;
 
 @end

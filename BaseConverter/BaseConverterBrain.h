@@ -16,6 +16,11 @@
 @property (nonatomic) NSMutableArray *octalArray;
 @property (nonatomic) NSMutableArray *hexArray;
 
-- (NSArray *)decimalToBinary:(double)number;
+// Compute binary conversion from decimal
+- (NSMutableArray *)decimalToBinary:(double)number;
+// Compute hex conversion from decimal
+- (NSMutableArray *)decimalToHex:(double)number;
+// Compute the octal conversion from decimal
+- (NSMutableArray *)decimalToOctal:(double)number;
 
 @end

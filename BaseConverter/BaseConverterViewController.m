@@ -43,85 +43,6 @@
     return _brain;
 }
 
-
-- (IBAction)Go 
-{
-    double number = 45;         
-    double tempNumber = number; // binary
-    double sameNumber = number; // hex
-    double theNumber = number; // octal
-    
-    // Data structures used to store the conversions
-    NSMutableArray *binaryArray = [[NSMutableArray alloc] init];
-    NSMutableArray *hexArray = [[NSMutableArray alloc] init];
-    NSMutableArray *octalArray = [[NSMutableArray alloc] init];
-    
-    // Compute binary conversion from decimal
-    while (tempNumber != 0) 
-    {
-        // Store the remainder
-            // fmod does this: (# - (whole number result of # / base) * base)
-        double remainder = fmod(tempNumber, 2.0);
-        // Perform the division
-        tempNumber = tempNumber / 2;
-        // Drop the remainder
-        tempNumber = floor(tempNumber);
-        // Add apropriate binary digit
-        [binaryArray addObject:[NSNumber numberWithInt:remainder]];
-    }
-    
-    // Print the binary conversion from decimal
-    while(binaryArray.count > 0)
-    {        
-        binaryLabel.text = [binaryLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [binaryArray lastObject]]];
-        [binaryArray removeLastObject];
-    }
-    
-    // Compute hexadecimal conversion from decimal
-    while (sameNumber != 0) 
-    {   
-        // Store the remainder
-            // fmod does this: (# - (whole number result of # / base) * base)
-        double remainder = fmod(sameNumber, 16.0);
-        // Perform the division
-        sameNumber = sameNumber / 16;
-        // Drop the remainder
-        sameNumber = floor(sameNumber);
-        // Evaluate remainder
-        id hexEquivalent = [self hexEvaluator:remainder];
-        // Add returned value to the hexArray
-        [hexArray addObject:hexEquivalent];
-    }
-    
-    // Print the hexadecimal conversion from decimal
-    while (hexArray.count > 0) 
-    {
-        hexLabel.text = [hexLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [hexArray lastObject]]];
-        [hexArray removeLastObject];
-    }
-    
-    // Compute the octal conversion from decimal
-    while(theNumber != 0)
-    {
-        // Store remainder
-        double remainder = fmod(theNumber, 8.0);
-        // Perform division
-        theNumber = theNumber / 8.0;
-        // Drop the remainder
-        theNumber = floor(theNumber);
-        // Add appropriate octal digit
-        [octalArray addObject:[NSNumber numberWithInt:remainder]];
-        
-    }
-    
-    // Print the octal conversion from decimal
-    while(octalArray.count > 0)
-    {
-        octalLabel.text = [octalLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [octalArray lastObject]]];
-        [octalArray removeLastObject];
-    }
-}
-
 // Enable/Disable buttons when a base button is pressed
 //  Handle labels (Bools and clears)
 - (IBAction)baseButtonPressed:(UIButton *)sender 
@@ -201,10 +122,17 @@
         decimalLabel.text = [decimalLabel.text stringByAppendingString:sender.currentTitle];
         // Make sure the arrays are initialized
         [self.brain binaryArray];
+        [self.brain hexArray];
+        [self.brain octalArray];
         // Send input to brain
         [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
+        [self.brain decimalToHex:[decimalLabel.text doubleValue]];
+        [self.brain decimalToOctal:[decimalLabel.text doubleValue]];
         // Display the conversion
         [self printBinaryConversion:[self.brain binaryArray]];
+        [self printHexConversion:[self.brain hexArray]];
+        [self printOctalConversion:[self.brain octalArray]];
+        
     }
     // Binary selected
     if (binSelected) 
@@ -224,17 +152,6 @@
         octalLabel.text = [octalLabel.text stringByAppendingString:sender.currentTitle];
         // Send input to brain
     }
-}
-
-// Convert integers > 10 to their hex equivalent
-- (id)hexEvaluator:(double)remainder
-{
-    if(remainder < 10) 
-        return [NSNumber numberWithInt:(int)remainder];
-    else if(remainder < 16) 
-        return [NSString stringWithFormat:@"%X", (int)remainder];
-    else 
-        return nil;
 }
 
 // Disable hex buttons
@@ -325,6 +242,7 @@
     [self disableHexValues];
 }
 
+// Print the binary conversion
 - (void)printBinaryConversion:(NSMutableArray *)binArray
 { 
     // Reset the binaryLabel for new output
@@ -336,6 +254,33 @@
         [binArray removeLastObject];
     }    
 }
+
+// Print the hexadecimal conversion
+- (void)printHexConversion:(NSMutableArray *)hexArray
+{
+    // Reset the hexLabel for new output
+    hexLabel.text = @"";
+    // Print the hexadecimal conversion
+    while (hexArray.count > 0) 
+    {
+        hexLabel.text = [hexLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [hexArray lastObject]]];
+        [hexArray removeLastObject];
+    }
+}
+
+// Print the octal conversion
+- (void)printOctalConversion:(NSMutableArray *)octalArray
+{
+    // Reset the octalLabel for new output
+    octalLabel.text = @"";
+    // Print the octal conversion
+    while(octalArray.count > 0)
+    {
+        octalLabel.text = [octalLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [octalArray lastObject]]];
+        [octalArray removeLastObject];
+    }
+}
+
 
 - (void)viewDidUnload {
     [self setBinaryLabel:nil];

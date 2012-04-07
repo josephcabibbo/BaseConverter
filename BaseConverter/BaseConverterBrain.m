@@ -54,9 +54,9 @@
     return _hexArray;
 }
 
+// Compute binary conversion from decimal
 - (NSMutableArray *)decimalToBinary:(double)number
 {    
-    // Compute binary conversion from decimal
     while (number != 0) 
     {
         // Store the remainder
@@ -71,6 +71,56 @@
     }
     
     return [_binaryArray mutableCopy];
+}
+
+// Compute hexadecimal conversion from decimal
+- (NSMutableArray *)decimalToHex:(double)number
+{
+    while (number != 0) 
+    {   
+        // Store the remainder
+        // fmod does this: (# - (whole number result of # / base) * base)
+        double remainder = fmod(number, 16.0);
+        // Perform the division
+        number = number / 16;
+        // Drop the remainder
+        number = floor(number);
+        // Evaluate remainder
+        id hexEquivalent = [self hexEvaluator:remainder];
+        // Add returned value to the hexArray
+        [_hexArray addObject:hexEquivalent];
+    }
+    
+    return [_hexArray mutableCopy];
+}
+
+// Compute the octal conversion from decimal
+- (NSMutableArray *)decimalToOctal:(double)number
+{
+    while(number != 0)
+    {
+        // Store remainder
+        double remainder = fmod(number, 8.0);
+        // Perform division
+        number = number / 8.0;
+        // Drop the remainder
+        number = floor(number);
+        // Add appropriate octal digit
+        [_octalArray addObject:[NSNumber numberWithInt:remainder]];
+    }
+    
+    return [_octalArray mutableCopy];
+}
+
+// Convert integers > 10 to their hex equivalent
+- (id)hexEvaluator:(double)remainder
+{
+    if(remainder < 10) 
+        return [NSNumber numberWithInt:(int)remainder];
+    else if(remainder < 16) 
+        return [NSString stringWithFormat:@"%X", (int)remainder];
+    else 
+        return nil;
 }
 
 @end
