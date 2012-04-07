@@ -8,6 +8,17 @@
 
 #import "BaseConverterViewController.h"
 #import <math.h>
+#import "BaseConverterBrain.h"
+
+@interface BaseConverterViewController()
+@property (nonatomic) BOOL hexSelected;
+@property (nonatomic) BOOL binSelected;
+@property (nonatomic) BOOL decSelected;
+@property (nonatomic) BOOL octSelected;
+
+@property (nonatomic, strong) BaseConverterBrain *brain;
+
+@end
 
 @implementation BaseConverterViewController
 
@@ -18,10 +29,24 @@
 @synthesize hexValueCollection;
 @synthesize nonOctalValueCollection;
 @synthesize nonBinaryValueCollection;
+@synthesize hexSelected;
+@synthesize binSelected;
+@synthesize decSelected;
+@synthesize octSelected;
+@synthesize brain = _brain;
+
+// Lazy instantiation for BaseConverterBrain
+- (BaseConverterBrain *)brain
+{
+    if(_brain == nil)
+        _brain = [[BaseConverterBrain alloc] init];
+    return _brain;
+}
+
 
 - (IBAction)Go 
 {
-    double number = 3096;         
+    double number = 45;         
     double tempNumber = number; // binary
     double sameNumber = number; // hex
     double theNumber = number; // octal
@@ -98,6 +123,7 @@
 }
 
 // Enable/Disable buttons when a base button is pressed
+//  Handle labels (Bools and clears)
 - (IBAction)baseButtonPressed:(UIButton *)sender 
 {
     // Decimal selected
@@ -107,6 +133,13 @@
         [self disableHexValues];
         // Enable valid buttons
         [self enableDecimalValues];
+        // Handle selection bools
+        decSelected = YES;
+        binSelected = NO;
+        hexSelected = NO;
+        octSelected = NO;
+        // Clear labels to start fresh
+        [self clearLabels];
     }
     // Octal selected
     if([sender.currentTitle isEqualToString:@"Oct"])
@@ -116,6 +149,14 @@
         [self disableNonOctalValues];
         // Enable valid buttons
         [self enableOctalValues];
+        // Handle selection bools
+        decSelected = NO;
+        binSelected = NO;
+        hexSelected = NO;
+        octSelected = YES;
+        // Clear labels to start fresh
+        [self clearLabels];
+
     }
     // Binary selected
     if([sender.currentTitle isEqualToString:@"Bin"])
@@ -124,12 +165,28 @@
         [self disableHexValues];
         [self disableNonOctalValues];
         [self disableNonBinaryValues];
+        // Handle selection bools
+        decSelected = NO;
+        binSelected = YES;
+        hexSelected = NO;
+        octSelected = NO;
+        // Clear labels to start fresh
+        [self clearLabels];
+
     }
     // Hex selected
     if([sender.currentTitle isEqualToString:@"Hex"])
     {
         // Enable valid buttons
         [self enableHexValues];
+        // Handle selection bools
+        decSelected = NO;
+        binSelected = NO;
+        hexSelected = YES;
+        octSelected = NO;
+        // Clear labels to start fresh
+        [self clearLabels];
+        
     }
 }
 
@@ -137,7 +194,36 @@
 //  well as send the values to the brain to compute the other bases
 - (IBAction)digitPressed:(UIButton *)sender 
 {
-//    NSLog(@"%@", sender.currentTitle);
+    // Decimal selected
+    if (decSelected) 
+    {
+        // Display the values in the decimalLabel
+        decimalLabel.text = [decimalLabel.text stringByAppendingString:sender.currentTitle];
+        // Make sure the arrays are initialized
+        [self.brain binaryArray];
+        // Send input to brain
+        [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
+        // Display the conversion
+        [self printBinaryConversion:[self.brain binaryArray]];
+    }
+    // Binary selected
+    if (binSelected) 
+    {
+        binaryLabel.text = [binaryLabel.text stringByAppendingString:sender.currentTitle];
+        // Send input to brain
+    }
+    // Hex selected
+    if (hexSelected) 
+    {
+        hexLabel.text = [hexLabel.text stringByAppendingString:sender.currentTitle];
+        // Send input to brain
+    }
+    // Octal selected
+    if (octSelected) 
+    {
+        octalLabel.text = [octalLabel.text stringByAppendingString:sender.currentTitle];
+        // Send input to brain
+    }
 }
 
 // Convert integers > 10 to their hex equivalent
@@ -220,6 +306,35 @@
         hexButton.enabled = YES;
         [hexButton setAlpha:1];
     }
+}
+
+// Clear all labels
+- (void)clearLabels
+{
+    decimalLabel.text = @"";
+    octalLabel.text = @"";
+    binaryLabel.text = @"";
+    hexLabel.text = @"";
+    
+}
+
+// The default settings upon loading app
+- (void) viewDidLoad
+{
+    decSelected = YES;
+    [self disableHexValues];
+}
+
+- (void)printBinaryConversion:(NSMutableArray *)binArray
+{ 
+    // Reset the binaryLabel for new output
+    binaryLabel.text = @"";
+    // Print the binary conversion
+    while(binArray.count > 0)
+    {        
+        binaryLabel.text = [binaryLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [binArray lastObject]]];
+        [binArray removeLastObject];
+    }    
 }
 
 - (void)viewDidUnload {
