@@ -189,6 +189,80 @@
     [self clearLabels];
 }
 
+- (IBAction)backspacePressed 
+{
+    if( decSelected )
+    {
+        if( ! [self.decimalLabel.text length] == 0 )
+        {
+            // Remove last added value
+            self.decimalLabel.text = [self.decimalLabel.text substringToIndex:[self.decimalLabel.text length] - 1];
+            // Send NEW input to brain
+            [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
+            [self.brain decimalToHex:[decimalLabel.text doubleValue]];
+            [self.brain decimalToOctal:[decimalLabel.text doubleValue]];
+            // Display the conversions
+            [self printBinaryConversion:[self.brain binaryArray]];
+            [self printHexConversion:[self.brain hexArray]];
+            [self printOctalConversion:[self.brain octalArray]];
+        }
+    }
+    else if( binSelected )
+    {
+        if( ! [self.binaryLabel.text length] == 0 )
+        {
+            // Remove last added value
+            self.binaryLabel.text = [self.binaryLabel.text substringToIndex:[self.binaryLabel.text length] - 1];
+            // Send input to brain and convert to decimal
+            [self.brain binaryToDecimal:binaryLabel.text];
+            // Display decimal conversion
+            [self printDecimalConversion:[self.brain decimalArray]];
+            // Send decimal value to brain
+            [self.brain decimalToHex:[decimalLabel.text doubleValue]];
+            [self.brain decimalToOctal:[decimalLabel.text doubleValue]];
+            // Display the remaining conversions
+            [self printHexConversion:[self.brain hexArray]];
+            [self printOctalConversion:[self.brain octalArray]];
+        }
+    }
+    else if( hexSelected )
+    {
+        if( ! [self.hexLabel.text length] == 0 )
+        {
+            // Remove last added value
+            self.hexLabel.text = [self.hexLabel.text substringToIndex:[self.hexLabel.text length] - 1];
+            // Send input to brain and convert to decimal
+            [self.brain hexToDecimal:hexLabel.text];
+            // Display decimal conversion
+            [self printDecimalConversion:[self.brain decimalArray]];
+            // Send decimal value to brain
+            [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
+            [self.brain decimalToOctal:[decimalLabel.text doubleValue]];
+            // Display the remaining conversions
+            [self printBinaryConversion:[self.brain binaryArray]];
+            [self printOctalConversion:[self.brain octalArray]];
+        }
+    }
+    else if( octSelected )
+    {
+        if( ! [self.octalLabel.text length] == 0 )
+        {
+            // Remove last added value
+            self.octalLabel.text = [self.octalLabel.text substringToIndex:[self.octalLabel.text length] - 1];
+            // Send input to brain and convert to decimal
+            [self.brain octalToDecimal:octalLabel.text];
+            // Display decimal conversion
+            [self printDecimalConversion:[self.brain decimalArray]];
+            // Send decimal value to brain
+            [self.brain decimalToHex:[decimalLabel.text doubleValue]];
+            [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
+            // Display the remaining conversions
+            [self printHexConversion:[self.brain hexArray]];
+            [self printBinaryConversion:[self.brain binaryArray]];
+        }
+    }
+}
+
 // Disable hex buttons
 - (IBAction)disableHexValues 
 {
@@ -326,7 +400,7 @@
 {
     decSelected = YES;
     [self disableHexValues];
-    // Make sure arrays are initialized
+    // Initialize Arrays
     [self.brain binaryArray];
     [self.brain decimalArray];
     [self.brain octalArray];

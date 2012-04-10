@@ -30,4 +30,6 @@
 // Handles the clear button
 - (IBAction)clearDisplayPressed;
 
+// Handles the backspace button
+- (IBAction)backspacePressed;
 @end
