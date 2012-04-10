@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D45E71AB1534AE9F002DA611 /* BaseConverterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D45E71AA1534AE9F002DA611 /* BaseConverterIcon.png */; };
+		D45E71AD1534AEAF002DA611 /* BaseConverterIconRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = D45E71AC1534AEAF002DA611 /* BaseConverterIconRetina.png */; };
+		D45E71AF1534AEB7002DA611 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D45E71AE1534AEB7002DA611 /* Default.png */; };
+		D45E71B11534AEBC002DA611 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D45E71B01534AEBC002DA611 /* Default@2x.png */; };
+		D45E71B31534C026002DA611 /* BaseConverterGeneric.png in Resources */ = {isa = PBXBuildFile; fileRef = D45E71B21534C026002DA611 /* BaseConverterGeneric.png */; };
 		D4C8B6BB152F907900AA5AED /* BaseConverterBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8B6BA152F907900AA5AED /* BaseConverterBrain.m */; };
 		D4DC42C4152AB11000568D6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DC42C3152AB11000568D6F /* UIKit.framework */; };
 		D4DC42C6152AB11000568D6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DC42C5152AB11000568D6F /* Foundation.framework */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D45E71AA1534AE9F002DA611 /* BaseConverterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaseConverterIcon.png; sourceTree = "<group>"; };
+		D45E71AC1534AEAF002DA611 /* BaseConverterIconRetina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaseConverterIconRetina.png; sourceTree = "<group>"; };
+		D45E71AE1534AEB7002DA611 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D45E71B01534AEBC002DA611 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D45E71B21534C026002DA611 /* BaseConverterGeneric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BaseConverterGeneric.png; path = ../../Desktop/BaseConverterGeneric.png; sourceTree = "<group>"; };
 		D4C8B6B9152F907900AA5AED /* BaseConverterBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseConverterBrain.h; sourceTree = "<group>"; };
 		D4C8B6BA152F907900AA5AED /* BaseConverterBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseConverterBrain.m; sourceTree = "<group>"; };
 		D4DC42BF152AB11000568D6F /* BaseConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +60,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D45E719E1534AE29002DA611 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D45E71B21534C026002DA611 /* BaseConverterGeneric.png */,
+				D45E71B01534AEBC002DA611 /* Default@2x.png */,
+				D45E71AE1534AEB7002DA611 /* Default.png */,
+				D45E71AC1534AEAF002DA611 /* BaseConverterIconRetina.png */,
+				D45E71AA1534AE9F002DA611 /* BaseConverterIcon.png */,
+			);
+			name = Images;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D4DC42B4152AB10F00568D6F = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +111,7 @@
 				D4C8B6B9152F907900AA5AED /* BaseConverterBrain.h */,
 				D4C8B6BA152F907900AA5AED /* BaseConverterBrain.m */,
 				D4DC42CA152AB11000568D6F /* Supporting Files */,
+				D45E719E1534AE29002DA611 /* Images */,
 			);
 			path = BaseConverter;
 			sourceTree = "<group>";
@@ -156,6 +180,11 @@
 			files = (
 				D4DC42CE152AB11000568D6F /* InfoPlist.strings in Resources */,
 				D4DC42D7152AB11000568D6F /* MainStoryboard.storyboard in Resources */,
+				D45E71AB1534AE9F002DA611 /* BaseConverterIcon.png in Resources */,
+				D45E71AD1534AEAF002DA611 /* BaseConverterIconRetina.png in Resources */,
+				D45E71AF1534AEB7002DA611 /* Default.png in Resources */,
+				D45E71B11534AEBC002DA611 /* Default@2x.png in Resources */,
+				D45E71B31534C026002DA611 /* BaseConverterGeneric.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

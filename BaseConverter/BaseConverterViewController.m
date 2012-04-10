@@ -395,6 +395,17 @@
     }
 }
 
+// Support portrait and portraitupsidedown
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
+{
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait)
+        return YES;
+    if (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+        return YES;
+    return NO; // Unknown value
+}
+
+
 // The default settings upon loading app
 - (void) viewDidLoad
 {
