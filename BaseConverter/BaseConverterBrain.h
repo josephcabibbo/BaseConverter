@@ -10,17 +10,26 @@
 
 @interface BaseConverterBrain : NSObject
 
-// Data structures used to store the conversions
+// Data structures used to store conversions
 @property (nonatomic) NSMutableArray *binaryArray;
 @property (nonatomic) NSMutableArray *decimalArray;
 @property (nonatomic) NSMutableArray *octalArray;
 @property (nonatomic) NSMutableArray *hexArray;
 
 // Compute binary conversion from decimal
-- (NSMutableArray *)decimalToBinary:(double)number;
+- (void)decimalToBinary:(double)number;
 // Compute hex conversion from decimal
-- (NSMutableArray *)decimalToHex:(double)number;
+- (void)decimalToHex:(double)number;
 // Compute the octal conversion from decimal
-- (NSMutableArray *)decimalToOctal:(double)number;
+- (void)decimalToOctal:(double)number;
+
+// Compute the decimal conversion from binary
+- (void)binaryToDecimal:(NSString *)numberString;
+
+// Compute the decimal conversion from hexadecimal
+- (void)hexToDecimal:(NSString *)numberString;
+
+// Compute the decimal conversion from octal
+- (void)octalToDecimal:(NSString *)numberString;
 
 @end

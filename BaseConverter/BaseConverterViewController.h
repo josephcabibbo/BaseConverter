@@ -27,4 +27,7 @@
 // Handles the input
 - (IBAction)digitPressed:(UIButton *)sender;
 
+// Handles the clear button
+- (IBAction)clearDisplayPressed;
+
 @end

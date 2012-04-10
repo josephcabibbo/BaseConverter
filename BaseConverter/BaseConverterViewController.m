@@ -10,12 +10,16 @@
 #import <math.h>
 #import "BaseConverterBrain.h"
 
+// Private Interface
 @interface BaseConverterViewController()
+
+// BOOLs for handling which base has been selected
 @property (nonatomic) BOOL hexSelected;
 @property (nonatomic) BOOL binSelected;
 @property (nonatomic) BOOL decSelected;
 @property (nonatomic) BOOL octSelected;
 
+// A brain (model) to perform base conversions
 @property (nonatomic, strong) BaseConverterBrain *brain;
 
 @end
@@ -120,15 +124,11 @@
     {
         // Display the values in the decimalLabel
         decimalLabel.text = [decimalLabel.text stringByAppendingString:sender.currentTitle];
-        // Make sure the arrays are initialized
-        [self.brain binaryArray];
-        [self.brain hexArray];
-        [self.brain octalArray];
         // Send input to brain
         [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
         [self.brain decimalToHex:[decimalLabel.text doubleValue]];
         [self.brain decimalToOctal:[decimalLabel.text doubleValue]];
-        // Display the conversion
+        // Display the conversions
         [self printBinaryConversion:[self.brain binaryArray]];
         [self printHexConversion:[self.brain hexArray]];
         [self printOctalConversion:[self.brain octalArray]];
@@ -137,21 +137,56 @@
     // Binary selected
     if (binSelected) 
     {
+        // Display the values in the binaryLabel
         binaryLabel.text = [binaryLabel.text stringByAppendingString:sender.currentTitle];
-        // Send input to brain
+        // Send input to brain and convert to decimal
+        [self.brain binaryToDecimal:binaryLabel.text];
+        // Display decimal conversion
+        [self printDecimalConversion:[self.brain decimalArray]];
+        // Send decimal value to brain
+        [self.brain decimalToHex:[decimalLabel.text doubleValue]];
+        [self.brain decimalToOctal:[decimalLabel.text doubleValue]];
+        // Display the remaining conversions
+        [self printHexConversion:[self.brain hexArray]];
+        [self printOctalConversion:[self.brain octalArray]];
     }
     // Hex selected
     if (hexSelected) 
     {
+        // Display the values in the hexLabel
         hexLabel.text = [hexLabel.text stringByAppendingString:sender.currentTitle];
-        // Send input to brain
+        // Send input to brain and convert to decimal
+        [self.brain hexToDecimal:hexLabel.text];
+        // Display decimal conversion
+        [self printDecimalConversion:[self.brain decimalArray]];
+        // Send decimal value to brain
+        [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
+        [self.brain decimalToOctal:[decimalLabel.text doubleValue]];
+        // Display the remaining conversions
+        [self printBinaryConversion:[self.brain binaryArray]];
+        [self printOctalConversion:[self.brain octalArray]];
     }
     // Octal selected
     if (octSelected) 
     {
+        // Display the values in the octalLabel
         octalLabel.text = [octalLabel.text stringByAppendingString:sender.currentTitle];
-        // Send input to brain
+        // Send input to brain and convert to decimal
+        [self.brain octalToDecimal:octalLabel.text];
+        // Display decimal conversion
+        [self printDecimalConversion:[self.brain decimalArray]];
+        // Send decimal value to brain
+        [self.brain decimalToHex:[decimalLabel.text doubleValue]];
+        [self.brain decimalToBinary:[decimalLabel.text doubleValue]];
+        // Display the remaining conversions
+        [self printHexConversion:[self.brain hexArray]];
+        [self printBinaryConversion:[self.brain binaryArray]];
     }
+}
+
+- (IBAction)clearDisplayPressed 
+{
+    [self clearLabels];
 }
 
 // Disable hex buttons
@@ -235,13 +270,6 @@
     
 }
 
-// The default settings upon loading app
-- (void) viewDidLoad
-{
-    decSelected = YES;
-    [self disableHexValues];
-}
-
 // Print the binary conversion
 - (void)printBinaryConversion:(NSMutableArray *)binArray
 { 
@@ -269,18 +297,41 @@
 }
 
 // Print the octal conversion
-- (void)printOctalConversion:(NSMutableArray *)octalArray
+- (void)printOctalConversion:(NSMutableArray *)octArray
 {
     // Reset the octalLabel for new output
     octalLabel.text = @"";
     // Print the octal conversion
-    while(octalArray.count > 0)
+    while(octArray.count > 0)
     {
-        octalLabel.text = [octalLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [octalArray lastObject]]];
-        [octalArray removeLastObject];
+        octalLabel.text = [octalLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [octArray lastObject]]];
+        [octArray removeLastObject];
     }
 }
 
+- (void)printDecimalConversion:(NSMutableArray *)decArray
+{
+    // Reset the decimalLabel for new output
+    decimalLabel.text = @"";
+    // Print the decimal conversion
+    while(decArray.count > 0)
+    {
+        decimalLabel.text = [decimalLabel.text stringByAppendingString:[NSString stringWithFormat:@"%@", [decArray lastObject]]];
+        [decArray removeLastObject];
+    }
+}
+
+// The default settings upon loading app
+- (void) viewDidLoad
+{
+    decSelected = YES;
+    [self disableHexValues];
+    // Make sure arrays are initialized
+    [self.brain binaryArray];
+    [self.brain decimalArray];
+    [self.brain octalArray];
+    [self.brain hexArray];
+}
 
 - (void)viewDidUnload {
     [self setBinaryLabel:nil];
