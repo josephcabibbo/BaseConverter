@@ -402,7 +402,7 @@
         return YES;
     if (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
         return YES;
-    return NO; // Unknown value
+    return NO;
 }
 
 

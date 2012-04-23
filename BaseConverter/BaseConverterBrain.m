@@ -141,54 +141,69 @@
 
 // Compute binary conversion from decimal
 - (void)decimalToBinary:(double)number
-{    
-    while (number != 0) 
+{   
+    if(number != 0)
     {
-        // Store the remainder
-        //  fmod does this: (# - (whole number result of # / base) * base)
-        double remainder = fmod(number, 2.0);
-        // Perform the division
-        number = number / 2;
-        // Drop the remainder
-        number = floor(number);
-        // Add apropriate binary digit
-        [_binaryArray addObject:[NSNumber numberWithInt:remainder]];
+        while (number != 0) 
+        {
+            // Store the remainder
+            //  fmod does this: (# - (whole number result of # / base) * base)
+            double remainder = fmod(number, 2.0);
+            // Perform the division
+            number = number / 2;
+            // Drop the remainder
+            number = floor(number);
+            // Add apropriate binary digit
+            [_binaryArray addObject:[NSNumber numberWithInt:remainder]];
+        }
     }
+    else 
+        [_binaryArray addObject:[NSNumber numberWithInt:0]];
 }
 
 // Compute hexadecimal conversion from decimal
 - (void)decimalToHex:(double)number
 {
-    while (number != 0) 
-    {   
-        // Store the remainder
-        // fmod does this: (# - (whole number result of # / base) * base)
-        double remainder = fmod(number, 16.0);
-        // Perform the division
-        number = number / 16;
-        // Drop the remainder
-        number = floor(number);
-        // Evaluate remainder
-        id hexEquivalent = [self hexEvaluator:remainder];
-        // Add returned value to the hexArray
-        [_hexArray addObject:hexEquivalent];
+    if(number != 0)
+    {
+        while (number != 0) 
+        {   
+            // Store the remainder
+            // fmod does this: (# - (whole number result of # / base) * base)
+            double remainder = fmod(number, 16.0);
+            // Perform the division
+            number = number / 16;
+            // Drop the remainder
+            number = floor(number);
+            // Evaluate remainder
+            id hexEquivalent = [self hexEvaluator:remainder];
+            // Add returned value to the hexArray
+            [_hexArray addObject:hexEquivalent];
+        }
     }
+    else
+        [_hexArray addObject:[NSNumber numberWithInt:0]];
 }
 
 // Compute the octal conversion from decimal
 - (void)decimalToOctal:(double)number
 {
-    while(number != 0)
+    if(number != 0)
     {
-        // Store remainder
-        double remainder = fmod(number, 8.0);
-        // Perform division
-        number = number / 8.0;
-        // Drop the remainder
-        number = floor(number);
-        // Add appropriate octal digit
-        [_octalArray addObject:[NSNumber numberWithInt:remainder]];
+        while(number != 0)
+        {
+            // Store remainder
+            double remainder = fmod(number, 8.0);
+            // Perform division
+            number = number / 8.0;
+            // Drop the remainder
+            number = floor(number);
+            // Add appropriate octal digit
+            [_octalArray addObject:[NSNumber numberWithInt:remainder]];
+        }
     }
+    else 
+        [_octalArray addObject:[NSNumber numberWithInt:0]];
 }
 
 // Convert integers > 10 to their hex equivalent
